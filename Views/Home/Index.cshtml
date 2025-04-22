@@ -1,8 +1,450 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@{
+    Layout = null;
+}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/styles.css">
+    <title>@ViewData["Title"]</title>
+    <style>
+        /* Tema oscuro con tonos azules */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a2e; /* Azul oscuro */
+            color: #e0e0e0; /* Gris claro */
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        header {
+            background-color: #162447; /* Azul muy oscuro */
+            padding: 20px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+            .navbar .logo {
+                color: #fff;
+                font-size: 24px;
+                font-weight: bold;
+            }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+            .nav-links li {
+                margin: 0 15px;
+            }
+
+            .nav-links a {
+                color: #fff;
+                font-size: 16px;
+                text-transform: uppercase;
+            }
+
+        .hero {
+            background-color: #1b1b3a; /* Azul oscuro */
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: #ffffff;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                margin-bottom: 30px;
+                color: #ddd;
+            }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #4f9deb; /* Azul brillante */
+            color: #fff;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .btn:hover {
+                background-color: #3a7bbd; /* Azul más oscuro */
+            }
+
+        .features {
+            padding: 50px 20px;
+            background-color: #162447; /* Azul oscuro */
+            text-align: center;
+        }
+
+            .features h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+                color: #fff;
+            }
+
+        .feature-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .feature-card {
+            background-color: #1a1a2e; /* Azul oscuro */
+            padding: 20px;
+            border-radius: 5px;
+            width: 250px;
+            color: #fff;
+        }
+
+        .about {
+            padding: 50px 20px;
+            background-color: #1b1b3a; /* Azul más suave */
+            text-align: center;
+        }
+
+        .values {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+            border-radius: 30px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+            .values h2 {
+                font-size: 2.5rem;
+                margin-bottom: 40px;
+                color: #333;
+            }
+
+        .value-grid {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .value-card {
+            background-color: #ffffff;
+            border-radius: 25px;
+            padding: 30px 20px;
+            max-width: 280px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+            .value-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+            }
+
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #ff5e57;
+            padding: 5px;
+            background-color: white;
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            color: #222;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+
+            .value-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+
+        .vision-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+            .vision-list li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                font-size: 1.1rem;
+                color: #fff;
+            }
+
+        .vision-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 20px;
+            background-color: #333;
+            color: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 50%;
+            margin-right: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #ff5e57;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+            .btn:hover {
+                background-color: #ff2a1f;
+            }
+
+        .hero-image {
+            max-width: 50%;
+        }
+
+        .image-with-border {
+            width: 100%;
+            height: auto;
+            border: 5px solid #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+            .image-with-border:hover {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            }
+
+        .vision {
+            background-color: #1e1e2f;
+            color: #f0f0f0;
+            padding: 60px 20px;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+            .vision h2 {
+                font-size: 2.5rem;
+                margin-bottom: 20px;
+                color: #ffffff;
+            }
+
+            .vision p {
+                font-size: 1.2rem;
+                margin-bottom: 40px;
+                color: #cccccc;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .vision-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            justify-items: center;
+        }
+
+            .vision-list li {
+                background-color: #2a2a40;
+                border-radius: 20px;
+                padding: 25px 15px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                color: #e0e0e0;
+                text-align: center;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+                .vision-list li:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+                }
+
+        .vision-icon {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #5c5ce0;
+            margin-bottom: 15px;
+            box-shadow: 0 0 10px #5c5ce0;
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">FinanPro</a>
+            <ul class="nav-links">
+                <li><a href="/Home/Registrar">Registrarse</a></li>
+                <li><a href="/Home/Login">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a FinanPro</h1>
+            <p>
+                FinanPro es tu aliado perfecto para tomar el control total de tus finanzas personales.
+                Ya sea que quieras ahorrar, invertir o gestionar tus gastos, nuestra plataforma te proporciona
+                las herramientas que necesitas para tomar decisiones financieras más inteligentes.
+            </p>
+            <a href="#sobre" class="btn">Sobre Nosotros</a>
+        </div>
+        <div class="hero-image">
+            <img src="https://wortev.capital/wp-content/uploads/2023/07/primer-fondo-de-ahorro-wortev-capital.jpg" alt="FinanPro" class="image-with-border">
+        </div>
+    </section>
+
+
+    <section class="features" id="por-que">
+        <h2>¿Por qué elegir FinanPro?</h2>
+        <p>
+            FinanPro es una plataforma diseñada para ayudarte a gestionar tu dinero de manera eficiente,
+            segura y sin complicaciones.
+        </p>
+        <div class="feature-list">
+            <div class="feature-card">
+                <h3>Organiza tus finanzas</h3>
+            </div>
+            <div class="feature-card">
+                <h3>Seguimiento de metas</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre">
+        <h2>Sobre FinanPro</h2>
+        <p>
+            FinanPro es una plataforma de finanzas personales diseñada para ayudarte a gestionar tu dinero de manera eficiente,
+            segura y sin complicaciones.
+        </p>
+        <a href="#" class="btn">Leer más</a>
+    </section>
+
+    <section class="values">
+        <h2>Nuestros Valores</h2>
+        <div class="value-grid">
+            <div class="value-card">
+                <img src="https://cdn-icons-png.flaticon.com/512/5165/5165915.png" alt="Transparencia" class="value-icon">
+                <h3>Transparencia</h3>
+                <p>Creemos en la honestidad y la claridad en todas nuestras interacciones.</p>
+            </div>
+            <div class="value-card">
+                <img src="https://st2.depositphotos.com/1001599/46143/v/450/depositphotos_461433996-stock-illustration-new-idea-generation-abstract-concept.jpg" alt="Innovación" class="value-icon">
+                <h3>Innovación</h3>
+                <p>Siempre estamos buscando nuevas maneras de mejorar nuestra plataforma.</p>
+            </div>
+            <div class="value-card">
+                <img src="https://st2.depositphotos.com/1001599/42290/v/450/depositphotos_422909758-stock-illustration-cloud-computing-security-abstract-concept.jpg" alt="Seguridad" class="value-icon">
+                <h3>Seguridad</h3>
+                <p>Tu privacidad es nuestra prioridad. Usamos la tecnología más avanzada para proteger tu información.</p>
+            </div>
+            <div class="value-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_CAXPMqJkDcA-mPyA4s33WtAKVxe2hqNFRg&s" alt="Compromiso" class="value-icon">
+                <h3>Compromiso</h3>
+                <p>Estamos dedicados a ayudarte a alcanzar tus metas financieras con herramientas fáciles de usar.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="vision">
+        <h2>Nuestra Visión</h2>
+        <p>
+            Ser la plataforma número uno de finanzas personales, ofreciendo soluciones innovadoras y accesibles a todos.
+        </p>
+        <ul class="vision-list">
+            <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSU15OlcXrqvVoUWpQgjwgFR9hHSfeTgTeJpA&s" alt="Seguridad de Alto Nivel" class="vision-icon">
+                Seguridad de Alto Nivel
+            </li>
+            <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZh1V7qxjI9FTvSoCmyT5-6q03gFmakr1gjA&s" alt="Cumplimiento con Normativas de Privacidad" class="vision-icon">
+                Cumplimiento con Normativas de Privacidad
+            </li>
+            <li>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx3qJH3I9Q79TV6P3-PAc0I9COd8sGJHxbIg&s" alt="Monitoreo Continuo" class="vision-icon">
+                Monitoreo Continuo
+            </li>
+            <li>
+                <img src="https://static.vecteezy.com/system/resources/previews/034/204/743/non_2x/email-encryption-protecting-computer-data-flat-modern-illustration-vector.jpg" alt="Encriptación de Datos" class="vision-icon">
+                Encriptación de Datos de Alta Seguridad
+            </li>
+        </ul>
+    </section>
+
+
+
+
+</body>
+</html>
+

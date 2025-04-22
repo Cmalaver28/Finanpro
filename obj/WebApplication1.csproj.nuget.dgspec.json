@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Public\\Finanpro\\WebApplication1.csproj": {}
+    "C:\\Users\\Public\\Prueba\\Finanpro\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Public\\Finanpro\\WebApplication1.csproj": {
+    "C:\\Users\\Public\\Prueba\\Finanpro\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Public\\Finanpro\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Public\\Prueba\\Finanpro\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\Public\\Finanpro\\WebApplication1.csproj",
+        "projectPath": "C:\\Users\\Public\\Prueba\\Finanpro\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Public\\Finanpro\\obj\\",
+        "outputPath": "C:\\Users\\Public\\Prueba\\Finanpro\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[9.0.3, )"

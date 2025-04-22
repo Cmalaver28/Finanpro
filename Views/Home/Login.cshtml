@@ -1,0 +1,195 @@
+﻿@model Finanpro.Models.UsuarioLoginViewModel
+@{
+    ViewData["Title"] = "Iniciar Sesión";
+}
+@{
+    Layout = null;
+}
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #ffffff;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        max-width: 1200px;
+        height: 80vh; 
+        flex-wrap: wrap; 
+    }
+
+    .login-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+        width: 100%;
+        max-width: 450px;
+        text-align: center;
+    }
+
+
+        .login-container .icon-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #4facfe;
+            margin: 0 auto 20px; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+            .login-container .icon-container img {
+                width: 40px;
+                height: 40px;
+                object-fit: contain;
+            }
+
+        .login-container h2 {
+            color: #4facfe;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+            .form-group input:focus {
+                border-color: #4facfe;
+                box-shadow: 0 0 8px rgba(79, 172, 254, 0.5);
+                outline: none;
+            }
+
+    .btn-submit {
+        width: 100%;
+        padding: 14px;
+        background-color: #4facfe;
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .btn-submit:hover {
+            background-color: #00c6ff;
+            transform: scale(1.05);
+        }
+
+    .validation {
+        color: #e74c3c;
+        font-size: 0.9em;
+        margin-top: 5px;
+    }
+
+    .alert {
+        background-color: #f8d7da;
+        color: #721c24;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+
+    .illustration {
+        width: 50%; 
+        background-image: url('https://static.vecteezy.com/system/resources/previews/033/126/756/non_2x/3d-purple-illustration-icon-of-using-smartphone-for-login-or-sign-in-to-social-media-app-account-profile-free-png.png'); /* Imagen de ilustración */
+        background-size: cover;
+        background-position: center;
+        border-radius: 16px;
+        height: 100%;
+    }
+
+  
+    .container > .illustration {
+        display: block; 
+    }
+
+   
+    .container > .illustration {
+        display: none;
+    }
+
+    .container > .login-container {
+        flex: 1;
+    }
+
+    .container > .illustration {
+        display: none;
+        flex: 1;
+    }
+</style>
+
+<div class="container">
+    <div class="login-container">
+
+        <div class="icon-container">
+  
+            <img src="https://cdn-icons-png.flaticon.com/512/219/219983.png" alt="Icono" />
+        </div>
+
+        <h2>Iniciar Sesión</h2>
+
+
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="alert">
+                @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <div>@error.ErrorMessage</div>
+                }
+            </div>
+        }
+
+        <form asp-action="Login" method="post">
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="validation"></span>
+            </div>
+
+            <div class="form-group">
+                <label for="contraseña">Contraseña</label>
+                <input asp-for="Contraseña" type="password" class="form-control" />
+                <span asp-validation-for="Contraseña" class="validation"></span>
+            </div>
+
+            <button type="submit" class="btn-submit">Iniciar sesión</button>
+        </form>
+    </div>
+
+    <div class="illustration">
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
